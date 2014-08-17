@@ -15,5 +15,4 @@ public class Function {
 
     System.out.print(new Function().Reverse(input.nextLine())); 
   }   
-  
 }
