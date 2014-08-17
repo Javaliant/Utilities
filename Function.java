@@ -20,7 +20,7 @@ public class Function {
   }
   // Count the vowels in a string
   public static int vowelCount(String str) {
-  	int count = 0;
+  	String len = str.length();
   	if (str.isEmpty()) return count;
   	for (int i = 0; i < str.length(); i++){
   		switch(str.charAt(i)) {
