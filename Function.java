@@ -20,9 +20,9 @@ public class Function {
   }
   // Count the vowels in a string
   public static int vowelCount(String str) {
-  	String len = str.length();
-  	if (str.isEmpty()) return count;
-  	for (int i = 0; i < str.length(); i++){
+    int count = 0, len = str.length();
+  	if (str.isEmpty()){ return count; }
+  	for (int i = 0; i < len; i++){
   		switch(str.charAt(i)) {
   			case 'a':
   			case 'e':
@@ -41,18 +41,19 @@ public class Function {
     Function function = new Function();
 
     // testing functionality
+
+    System.out.print("Enter a word to check if it's a palindrome: ");
+    String potentialPalindrome = input.nextLine();
+    System.out.println(function.isPalindrome(potentialPalindrome));
+    
     System.out.print("Enter a string to reverse: ");
     String toBeReversed = input.nextLine();
     System.out.println(function.reverse(toBeReversed));
 
     System.out.print("Let's add up all the numbers from 1 to a number.\nChoose the number: ");
-    int sumInt = input.nextInt();
-    System.out.println(function.addTill(sumInt));
+    int sumInt = Integer.parseInt(input.nextLine());
+    System.out.println(function.addTill(sumInt)); 
 
-    System.out.print("Enter a word to check if it's a palindrome: ");
-    String potentialPalindrome = input.next();
-    System.out.println(function.isPalindrome(potentialPalindrome));
-    
     System.out.print("Enter a string to count the vowels of: ");
     String toVowelCount = input.nextLine();
     System.out.println(function.vowelCount(toVowelCount));
