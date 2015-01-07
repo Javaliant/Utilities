@@ -10,13 +10,21 @@ public class Function {
   public static String reverse(String str) {  
     return new StringBuilder(str).reverse().toString();
   }
+  // Check if a word is a palindrome
+  public static boolean isPalindrome(String str) {
+  	return str.equals(reverse(str));
+  }
   // Add up all the numbers from 1 to num
   public static int addTill(int num) {
     return num * (num + 1) / 2;
   }
-  // Check if a word is a palindrome
-  public static boolean isPalindrome(String str) {
-  	return str.equals(new StringBuilder(str).reverse().toString());
+  // Get the largest number
+  public static Double maxNum(Double... num) {
+  	Double largest = num[0];
+  	for (Double n : num) {
+  		largest = Math.max(largest, n);
+  	}
+  	return largest;
   }
   // Get int array from String input, ignores non-integers and words that include integers
   public static int[] getIntegers(String s) {
@@ -77,25 +85,6 @@ public class Function {
   }
   
   public static void main (String[] args) {     
-    Scanner input = new Scanner(System.in);
-    Function function = new Function();
-
-    // testing functionality
-
-    System.out.print("Enter a word to check if it's a palindrome: ");
-    String potentialPalindrome = input.nextLine();
-    System.out.println(function.isPalindrome(potentialPalindrome));
-    
-    System.out.print("Enter a string to reverse: ");
-    String toBeReversed = input.nextLine();
-    System.out.println(function.reverse(toBeReversed));
-
-    System.out.print("Let's add up all the numbers from 1 to a number.\nChoose the number: ");
-    int sumInt = Integer.parseInt(input.nextLine());
-    System.out.println(function.addTill(sumInt)); 
-
-    System.out.print("Enter a string to count the vowels of: ");
-    String toVowelCount = input.nextLine();
-    System.out.println(function.vowelCount(toVowelCount));
+  	// tests
   }   
 }
