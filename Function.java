@@ -18,6 +18,35 @@ public class Function {
   public static boolean isPalindrome(String str) {
   	return str.equals(new StringBuilder(str).reverse().toString());
   }
+  // Get int array from String input (ignores, non-integers)
+  public static int[] getIntegers(String s) {
+    int[] result;
+    ArrayList<Integer> helper = new ArrayList<>();
+    StringBuilder sb = new StringBuilder();
+
+    for (int i = 0; i < s.length(); i++) {
+        if (s.charAt(i) == ' ' ^ i == s.length() - 1) {
+            if (i == s.length() - 1) { sb.append(s.charAt(i)); }
+            if (sb.toString().length() > 0) {
+                try { helper.add(Integer.parseInt(sb.toString()));
+                } catch(NumberFormatException nfe) {
+                        // Ignore non-integers
+                }
+                sb.setLength(0);
+                continue;
+            }
+        }
+        sb.append(s.charAt(i));
+    }
+
+    result = new int[helper.size()];
+    int i = 0;
+
+    for (Integer n : helper) {
+        result[i++] = n;
+    }
+    return result;
+  }
   // Count the vowels in a string
   public static int vowelCount(String str) {
     int count = 0, len = str.length();
