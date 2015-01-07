@@ -25,24 +25,24 @@ public class Function {
 
     	for (int i = 0; i <= s.length(); i++) {
         	if (i == s.length() || s.charAt(i) == ' ') { // End or Delimiter
-            	try { 
-                	helper.add(Integer.parseInt(sb.toString()));
-            	} catch(NumberFormatException nfe) {
+            		try { 
+                		helper.add(Integer.parseInt(sb.toString()));
+            		} catch(NumberFormatException nfe) {
                 	// Ignore non-integers and empty strings
-            	}
-            	sb.setLength(0);
+            		}
+            		sb.setLength(0);
         	} else {
-            	sb.append(s.charAt(i)); // Possible integer
+            		sb.append(s.charAt(i)); // Possible integer
         	}
     	}
 
-	    int[] result = new int[helper.size()];
-	    int i = 0;
-	    for (Integer n : helper) {
-	        result[i++] = n;
-	    }
-	    return result;
+	int[] result = new int[helper.size()];
+	int i = 0;
+	for (Integer n : helper) {
+		result[i++] = n;
 	}
+	return result;
+}
 	// Without ignoring integers in between words
 	public static int[] getAllIntegers(String input) { 
 		return Arrays.stream(input.split("\\D+"))
