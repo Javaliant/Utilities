@@ -47,6 +47,21 @@ public class Function {
     }
     return result;
   }
+  // Without skipping letters that include integers
+  public static int[] getAllIntegers(String input) {
+    return Arrays.stream(input.split("\\D+"))
+       .filter(word -> !word.isEmpty())
+       .mapToInt(word -> Integer.parseInt(word))
+       .toArray(); */
+       
+       /* alternative approach without Java 8
+       String[] digitwords = input.split("\\D+");
+	      int[] result = new int[digitwords.length];
+	      for (int i = 0; i < result.length; i++) {
+	        result[i] = Integer.parseInt(digitwords[i]);
+        }
+        return result */
+  }
   // Count the vowels in a string
   public static int vowelCount(String str) {
     int count = 0, len = str.length();
