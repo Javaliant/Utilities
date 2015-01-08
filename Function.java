@@ -44,9 +44,10 @@ public class Function {
   // Check if a number is prime -- expects a positive int
   private static boolean isPrime(int num) {
     	if (num < 1) {
-    		throw new NumberFormatException(
+    		throw new IllegalArgumentException(
     			"Argument must be a positive integer." +
-    			"\n Argument was " + num + ".");
+    			"\n Argument was " + num + "."
+    		);
     	}
     	if (num <= 3){
     		return num == 1 ? false : true;
