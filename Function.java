@@ -6,6 +6,10 @@ import java.util.*;
 import java.io.*;
 
 public class Function {
+  //Greatest Common Divisor - Euclidean algorithm: http://en.wikipedia.org/wiki/Euclidean_algorithm
+  public int GCD(int a, int b) { return b == 0 ? a : GCD(b, a % b); }
+  // Least Common Multiple
+  public int LCM(int a, int b) { return (a * b) / GCD(a, b); }
   // Reversing a string
   public static String reverse(String str) {  
     return new StringBuilder(str).reverse().toString();
@@ -101,5 +105,5 @@ public class Function {
   
   public static void main (String[] args) {     
   	// tests
-  }   
+  }
 }
