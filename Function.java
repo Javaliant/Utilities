@@ -10,6 +10,17 @@ public class Function {
   public int GCD(int a, int b) { return b == 0 ? a : GCD(b, a % b); }
   // Least Common Multiple
   public int LCM(int a, int b) { return (a * b) / GCD(a, b); }
+  // Check if a number is a prime
+  private static boolean isPrime(int num) {
+        if (num % 2 == 0) { return false; }
+
+        for (int i = 3; i * i <= num; i += 2) {
+            if (num % i == 0) {
+            	return false;
+            }
+        }
+        return true;
+  }
   // Reversing a string
   public static String reverse(String str) {  
     return new StringBuilder(str).reverse().toString();
