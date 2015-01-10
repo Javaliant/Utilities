@@ -43,7 +43,7 @@ public class Function {
 
         int limit = (int) Math.sqrt(num);
 
-        for (int i = 5; i <= limit; i += 2) {
+        for (int i = 3; i <= limit; i += 2) {
             if (num % i == 0) { return false; }
         }
         return true;
