@@ -10,17 +10,6 @@ public class Function {
   public int GCD(int a, int b) { return b == 0 ? a : GCD(b, a % b); }
   // Least Common Multiple
   public int LCM(int a, int b) { return (a * b) / GCD(a, b); }
-  // Check if a number is a prime
-  private static boolean isPrime(int num) {
-        if ((num  & 1) == 0) { return false; }
-
-        for (int i = 3; i * i <= num; i += 2) {
-            if (num % i == 0) {
-            	return false;
-            }
-        }
-        return true;
-  }
   // Reversing a string
   public static String reverse(String str) {  
     return new StringBuilder(str).reverse().toString();
@@ -46,13 +35,13 @@ public class Function {
     	if (num < 1) {
     		throw new IllegalArgumentException(
     			"Argument must be a positive integer." +
-    			"\n Argument was " + num + "."
+    			"\n Argument was: " + num + "."
     		);
     	}
     	if (num <= 3){
     		return num == 1 ? false : true;
     	}
-        if (num % 2 == 0) { return false; }
+        if ((num & 1) == 0) { return false; }
 
         for (int i = 3; i * i <= num; i += 2) {
             if (num % i == 0) {
