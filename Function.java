@@ -12,7 +12,7 @@ public class Function {
   public int LCM(int a, int b) { return (a * b) / GCD(a, b); }
   // Check if a number is a prime
   private static boolean isPrime(int num) {
-        if (num % 2 == 0) { return false; }
+        if ((num  & 1) == 0) { return false; }
 
         for (int i = 3; i * i <= num; i += 2) {
             if (num % i == 0) {
