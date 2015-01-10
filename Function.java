@@ -31,19 +31,17 @@ public class Function {
   	return largest;
   }
   // Check if a number is prime -- expects a positive int
-  private static boolean isPrime(int num) {
+  private static boolean isPrime(long num) {
     	if (num < 1) {
     		throw new IllegalArgumentException(
     			"Argument must be a positive integer." +
     			"\n Argument was: " + num + "."
     		);
     	}
-    	if (num <= 3){
-    		return num == 1 ? false : true;
-    	}
+    	if (num <= 3){ return num > 1; }
         if ((num & 1) == 0) { return false; }
 
-        for (int i = 3; i * i <= num; i += 2) {
+        for (int i = 5; i * i <= num; i += 2) {
             if (num % i == 0) {
             	return false;
             }
