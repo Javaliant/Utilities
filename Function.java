@@ -6,7 +6,8 @@ import java.util.*;
 import java.io.*;
 
 public class Function {
-  //Greatest Common Divisor - Euclidean algorithm: http://en.wikipedia.org/wiki/Euclidean_algorithm
+  /* Greatest Common Divisor - 
+  Euclidean algorithm: http://en.wikipedia.org/wiki/Euclidean_algorithm */
   public int GCD(int a, int b) { return b == 0 ? a : GCD(b, a % b); }
   // Least Common Multiple
   public int LCM(int a, int b) { return (a * b) / GCD(a, b); }
@@ -30,65 +31,72 @@ public class Function {
   	}
   	return largest;
   }
-  // Check if a number is prime -- expects a positive int
-  public static boolean isPrime(long num) {
-    	if (num <= 3) { return num > 1; }
-        if ((num & 1) == 0 || num % 3 == 0) { return false; }
+  // Check if a number is prime
+  public static boolean isPrime(int num) {
+    if (num <= 3) { return num > 1; }
+    if ((num & 1) == 0 || num % 3 == 0) { return false; }
 
-        int limit = (int) Math.sqrt(num);
-        for (int i = 5; i <= limit; i += 6) {
-            if (num % i == 0 || num % (i + 2) == 0) { return false; }
-        }
-        return true;
+    int limit = (int) Math.sqrt(num);
+
+    for (int i = 5; i <= limit; i += 6) {
+      if (num % i == 0 || num % (i + 2) == 0) { return false; }
+    }
+
+    return true;
   }
   // Check if number is Even
   public static boolean isEven(int n) {
-  	return  (n & 1) == 0 ? true : false;
+  	return (n & 1) == 0 ? true : false;
   }
-  // Get int array from String input, ignores non-integers and words that include integers
+  /*Get int array from String input
+  ignores non-integers and words that include integers */
   public static int[] getIntegers(String s) {
-    	ArrayList<Integer> helper = new ArrayList<>();
-    	StringBuilder sb = new StringBuilder();
+    ArrayList<Integer> helper = new ArrayList<>();
+    StringBuilder sb = new StringBuilder();
 
-    	for (int i = 0; i <= s.length(); i++) {
-        	if (i == s.length() || s.charAt(i) == ' ') { // End or Delimiter
-            		try { 
-                		helper.add(Integer.parseInt(sb.toString()));
-            		} catch(NumberFormatException nfe) {
-                	// Ignore non-integers and empty strings
-            		}
-            		sb.setLength(0);
-        	} else {
-            		sb.append(s.charAt(i)); // Possible integer
-        	}
-    	}
+    for (int i = 0; i <= s.length(); i++) {
+      if (i == s.length() || s.charAt(i) == ' ') { // End or Delimiter
+        try { 
+          helper.add(Integer.parseInt(sb.toString()));
+        } catch(NumberFormatException nfe) {
+          // Ignore non-integers and empty strings
+        }
+        sb.setLength(0);
+      } else {
+        sb.append(s.charAt(i)); // Possible integer
+      }
+    }
 
-	int[] result = new int[helper.size()];
-	int i = 0;
-	for (Integer n : helper) {
-		result[i++] = n;
-	}
-	return result;
-}
+	  int[] result = new int[helper.size()];
+	  int i = 0;
+
+	  for (Integer n : helper) {
+		 result[i++] = n;
+	  }
+
+	  return result;
+  }
 	// Without ignoring integers in between words
 	public static int[] getAllIntegers(String input) { 
 		return Arrays.stream(input.split("\\D+"))
-	       .filter(word -> !word.isEmpty())
-	       .mapToInt(word -> Integer.parseInt(word))
-	       .toArray();
+	    .filter(word -> !word.isEmpty())
+	    .mapToInt(word -> Integer.parseInt(word))
+	    .toArray();
 
-	    /*Without using Java 8
-	    String[] digitwords = input.split("\\D+");
-		int[] result = new int[digitwords.length];
-		for (int i = 0; i < result.length; i++) {
+	  /*Without using Java 8
+	  String[] digitwords = input.split("\\D+");
+		  int[] result = new int[digitwords.length];
+		  for (int i = 0; i < result.length; i++) {
 	    	result[i] = Integer.parseInt(digitwords[i]);
-		}
-		return result; */
-   	}
+		  }
+		  return result; */
+  }
   // Count the vowels in a string
   public static int vowelCount(String str) {
     int count = 0, len = str.length();
+
   	if (str.isEmpty()){ return count; }
+
   	for (int i = 0; i < len; i++){
   		switch(str.charAt(i)) {
   			case 'a':
@@ -97,7 +105,7 @@ public class Function {
   			case 'o':
   			case 'u':
   				count += 1;
-  				break;
+  			break;
   		}
   	}
   	return count;
