@@ -32,22 +32,15 @@ public class Function {
   }
   // Check if a number is prime -- expects a positive int
   public static boolean isPrime(long num) {
-    	if (num < 1) {
-    		throw new IllegalArgumentException(
-    			"Argument must be a positive integer." +
-    			"\n Argument was: " + num + "."
-    		);
-    	}
-    	if (num <= 3){ return num > 1; }
-        if ((num & 1) == 0) { return false; }
+    	if (num <= 3) { return num > 1; }
+        if ((num & 1) == 0 || num % 3 == 0) { return false; }
 
         int limit = (int) Math.sqrt(num);
-
-        for (int i = 3; i <= limit; i += 2) {
-            if (num % i == 0) { return false; }
+        for (int i = 5; i <= limit; i += 6) {
+            if (num % i == 0 || num % (i + 2) == 0) { return false; }
         }
         return true;
-}
+  }
   // Check if number is Even
   public static boolean isEven(int n) {
   	return  (n & 1) == 0 ? true : false;
