@@ -46,7 +46,7 @@ public class Function {
   }
   // Check if number is Even
   public static boolean isEven(int n) {
-  	return (n & 1) == 0 ? true : false;
+  	return (n & 1) == 0;
   }
   /*Get int array from String input
   ignores non-integers and words that include integers */
