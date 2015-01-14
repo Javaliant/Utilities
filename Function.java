@@ -15,9 +15,12 @@ public class Function {
   public static String reverse(String str) {  
     return new StringBuilder(str).reverse().toString();
   }
-  // Check if a word is a palindrome
+  // Check if a word is a palindrome, ignores spaces and non letter characters
   public static boolean isPalindrome(String str) {
-  	return str.equals(reverse(str));
+        String possiblePalindrome = str.replaceAll("[^a-zA-Z]", "").toLowerCase();
+        return possiblePalindrome.length() == 0 ? false : possiblePalindrome.equals(
+            new StringBuilder(possiblePalindrome).reverse().toString()
+        );
   }
   // Add up all the numbers from 1 to num
   public static int addTill(int num) {
