@@ -15,13 +15,41 @@ public class Function {
   public static String reverse(String str) {  
     return new StringBuilder(str).reverse().toString();
   }
-  // Check if a word is a palindrome, ignores spaces and non letter characters
+  // Check if a word is a palindrome, ignores spaces and non-letter characters.
   public static boolean isPalindrome(String str) {
         String possiblePalindrome = str.replaceAll("[^a-zA-Z]", "").toLowerCase();
         return possiblePalindrome.length() == 0 ? false : possiblePalindrome.equals(
             new StringBuilder(possiblePalindrome).reverse().toString()
         );
   }
+  // Check if a word is a pangram, ignores spaces and non-letter characters.
+  public static boolean isPangram(String s) {
+		String possiblePangram = s.replaceAll("[^a-zA-Z]", "").toLowerCase();
+		if (possiblePangram.length() < 26) { return false; }
+
+		Set<Character> alphabet = new HashSet<Character>() {
+    		{
+    			add('a'); add('b'); add('c');
+    			add('d'); add('e'); add('f');
+    			add('g'); add('h'); add('i');
+    			add('j'); add('k'); add('l');
+    			add('m'); add('n'); add('o');
+    			add('p'); add('q'); add('r');
+    			add('s'); add('t'); add('u');
+    			add('v'); add('w'); add('x');
+    			add('y'); add('z');
+    		}
+		};
+
+		for (int i = 0; i < possiblePangram.length(); i++) {
+			if (alphabet.contains(possiblePangram.charAt(i))) {
+				alphabet.remove(possiblePangram.charAt(i));
+			}
+			if (alphabet.size() == 0) { break; }
+		}
+
+		return alphabet.size() == 0;
+	}
   // Add up all the numbers from 1 to num
   public static int addTill(int num) {
     return num * (num + 1) / 2;
