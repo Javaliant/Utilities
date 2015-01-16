@@ -75,6 +75,26 @@ public class Function {
 
     return true;
   }
+ // Get all prime numbers under a number
+ public static List<Integer> getPrimesUnder(int limit) {
+	    int prime;
+	    List<Integer> primes = new ArrayList<>(),
+	    	numbers = new ArrayList<>()
+	    ;
+
+	    for (int i = 2; i < limit; i++) {
+	    	numbers.add(i);
+	    }
+
+	    while (!numbers.isEmpty()) {
+	    	prime = numbers.get(0);
+	    	primes.add(prime);
+	    	for (int i = prime; i < limit; i += prime) {
+	    		numbers.remove(new Integer(i));
+	    	}
+	    }
+	    return primes;
+	}
   // Check if number is Even
   public static boolean isEven(int n) {
   	return (n & 1) == 0;
