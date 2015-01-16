@@ -91,7 +91,7 @@ public class Function {
 	    	prime = numbers.get(0);
 	    	primes.add(prime);
 	    	for (int i = prime; i < limit; i += prime) {
-	    		numbers.remove(new Integer(i));
+	    		numbers.remove((Integer)(i));
 	    	}
 	    }
 	    return primes;
