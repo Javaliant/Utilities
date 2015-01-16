@@ -75,7 +75,8 @@ public class Function {
 
     return true;
   }
- // Get all prime numbers under a number
+ /* Get all prime numbers under a number
+ Sieve of Eratosthenes - http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes */
  public static List<Integer> getPrimesUnder(int limit) {
 	    int prime;
 	    List<Integer> primes = new ArrayList<>(),
