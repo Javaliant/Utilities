@@ -62,6 +62,30 @@ public class Function {
   	}
   	return largest;
   }
+  // Count the number of appearances of an item in a list
+	private static <T> int countAppearances(List<T> list, T item) {
+	    int count = 0;
+
+	    for (T t : list) {
+	        if (t.equals(item)) {
+	            count++;
+	        }
+	    }
+
+	    return count;
+	}
+	// Filters out non-unique members of a list
+	private static <T> List<T> getUniques(List<T> list) {
+	    List<T> result = new ArrayList<>();
+
+	    for (T t : list) {
+	        if (countAppearances(list, t) == 1) {
+	            result.add(t);
+	        }
+	    }
+
+	    return result;
+	}
   // Check if a number is prime
   public static boolean isPrime(int num) {
     if (num <= 3) { return num > 1; }
