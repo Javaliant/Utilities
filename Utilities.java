@@ -187,6 +187,16 @@ public class Function {
   	return count;
   }
   
+  public static int countOccurences(int[] array, int key) {
+	int count = 0;
+
+	for (int n : array) {
+		if (n == key) { count++; }
+	}
+	
+	return count;
+}
+  
   public static String toCapitalized(String label) {
         return label.substring(0, 1).toUpperCase() + label.substring(1).toLowerCase();
     }
