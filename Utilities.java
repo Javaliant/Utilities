@@ -187,7 +187,7 @@ public class Function {
   	return count;
   }
   
-  public static void main (String[] args) {     
-  	// tests
-  }
+  public static String toCapitalized(String label) {
+        return label.substring(0, 1).toUpperCase() + label.substring(1).toLowerCase();
+    }
 }
