@@ -16,15 +16,8 @@ public class Function {
     return new StringBuilder(str).reverse().toString();
   }
   // sums all the digits within a number, repeats process until a single digit, the "digital root" is found and returns it.
-  private static int getDigitalRoot(int num) {
-	if (Integer.toString(num).length() == 1) { return num; }
-	
-	int result = 0;
-
-	for (char c : Integer.toString(num).toCharArray()) {
-		result += Character.getNumericValue(c);
-	}
-	return getDigitalRoot(result);	
+  public static int computeDigitalRoot(int n) {
+		return n == 0 ? 0 : n % 9 == 0 ? 9 : n % 9;
 	}
   // Check if a word is a palindrome, ignores spaces and non-letter characters.
   public static boolean isPalindrome(String str) {
@@ -74,7 +67,7 @@ public class Function {
   	return largest;
   }
   // Count the number of appearances of an item in a list
-	private static <T> int countAppearances(List<T> list, T item) {
+	public static <T> int countAppearances(List<T> list, T item) {
 	    int count = 0;
 
 	    for (T t : list) {
@@ -86,7 +79,7 @@ public class Function {
 	    return count;
 	}
 	// Filters out non-unique members of a list
-	private static <T> List<T> getUniques(List<T> list) {
+	public static <T> List<T> getUniques(List<T> list) {
 	    List<T> result = new ArrayList<>();
 
 	    for (T t : list) {
