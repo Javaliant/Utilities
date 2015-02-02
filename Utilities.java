@@ -15,6 +15,17 @@ public class Function {
   public static String reverse(String str) {  
     return new StringBuilder(str).reverse().toString();
   }
+  // sums all the digits within a number, repeats process until a single digit, the "digital root" is found and returns it.
+  private static int getDigitalRoot(int num) {
+	if (Integer.toString(num).length() == 1) { return num; }
+	
+	int result = 0;
+
+	for (char c : Integer.toString(num).toCharArray()) {
+		result += Character.getNumericValue(c);
+	}
+	return getDigitalRoot(result);	
+	}
   // Check if a word is a palindrome, ignores spaces and non-letter characters.
   public static boolean isPalindrome(String str) {
         String possiblePalindrome = str.replaceAll("[^a-zA-Z]", "").toLowerCase();
