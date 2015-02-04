@@ -54,6 +54,17 @@ public class Function {
 
 		return alphabet.size() == 0;
 	}
+  // Matrix Search
+  public static boolean search(int[][] matrix, int target) {
+		for (int[] array : matrix) {
+			for (int possibleTarget : array) {
+				if (target == possibleTarget) {
+					return true; // target found
+				}
+			}
+		}
+		return false; // target not found
+	}
   // Add up all the numbers from 1 to num
   public static int addTill(int num) {
     return num * (num + 1) / 2;
