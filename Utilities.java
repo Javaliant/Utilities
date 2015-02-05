@@ -33,10 +33,16 @@ public static boolean isPalindromic(int s) {
         return s == reverse(s);
 }
 // reversing an integer
-public static int reverse(int n) {
-    return Integer.parseInt(
-        new StringBuilder(Integer.toString(n)).reverse().toString()
-    );
+public static int reverse(int p) {
+    	int reverse = 0
+
+    	while (p != 0) {
+	        reverse *= 10;
+	        reverse += (p % 10);
+	        p /= 10;
+    	}
+    	
+	return reverse;
 }
   // Check if a word is a palindrome, ignores case, spaces and non-letter characters.
   public static boolean isPalindrome(String str) {
