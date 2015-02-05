@@ -15,6 +15,15 @@ public class Function {
   public static String reverse(String str) {  
     return new StringBuilder(str).reverse().toString();
   }
+  // Checks if a string is a palindrome
+  public static boolean isPalindromic(String s) {
+	for (int i = 0, j = s.length() - 1; i < j; i++, j--) {
+       		if (s.charAt(i) != s.charAt(j)) {
+            		return false;
+             	}
+    	}
+    	return true;
+}
   // sums all the digits within a number, repeats process until a single digit, the "digital root" is found and returns it.
   public static int computeDigitalRoot(int n) {
 		return n == 0 ? 0 : n % 9 == 0 ? 9 : n % 9;
@@ -29,12 +38,10 @@ public static int reverse(int n) {
         new StringBuilder(Integer.toString(n)).reverse().toString()
     );
 }
-  // Check if a word is a palindrome, ignores spaces and non-letter characters.
+  // Check if a word is a palindrome, ignores case, spaces and non-letter characters.
   public static boolean isPalindrome(String str) {
         String possiblePalindrome = str.replaceAll("[^a-zA-Z]", "").toLowerCase();
-        return possiblePalindrome.length() == 0 ? false : possiblePalindrome.equals(
-            new StringBuilder(possiblePalindrome).reverse().toString()
-        );
+        return possiblePalindrome.length() == 0 ? false : isPalindromic(possiblePalindrome);
   }
   // Check if a word is a pangram, ignores spaces and non-letter characters.
   public static boolean isPangram(String s) {
