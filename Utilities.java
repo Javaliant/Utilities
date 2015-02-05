@@ -19,6 +19,16 @@ public class Function {
   public static int computeDigitalRoot(int n) {
 		return n == 0 ? 0 : n % 9 == 0 ? 9 : n % 9;
 	}
+// checking if an integer is a palindrome
+public static boolean isPalindromic(int s) {
+        return s == reverse(s);
+}
+// reversing an integer
+public static int reverse(int n) {
+    return Integer.parseInt(
+        new StringBuilder(Integer.toString(n)).reverse().toString()
+    );
+}
   // Check if a word is a palindrome, ignores spaces and non-letter characters.
   public static boolean isPalindrome(String str) {
         String possiblePalindrome = str.replaceAll("[^a-zA-Z]", "").toLowerCase();
