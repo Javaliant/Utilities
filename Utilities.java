@@ -146,24 +146,21 @@ public static int reverse(int p) {
  /* Get all prime numbers under a number
  Sieve of Eratosthenes - http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes */
  public static List<Integer> getPrimesUnder(int limit) {
-	    int prime;
-	    List<Integer> primes = new ArrayList<>(),
-	    	numbers = new ArrayList<>()
-	    ;
+	boolean[] sieve = new boolean[limit];
+	Arrays.fill(sieve, true);
+	List<Integer> primes = new ArrayList<>();
 
-	    for (int i = 2; i < limit; i++) {
-	    	numbers.add(i);
-	    }
+	for (int prime = 2; prime < sieve.length; prime++) {
+    		if (sieve[prime]) {
+    			primes.add(prime);
+        		for (int np = prime * 2; np < sieve.length; np += prime) {
+            			sieve[np] = false;
+        		}
+        	}
+    	}
 
-	    while (!numbers.isEmpty()) {
-	    	prime = numbers.get(0);
-	    	primes.add(prime);
-	    	for (int i = prime; i < limit; i += prime) {
-	    		numbers.remove((Integer)(i));
-	    	}
-	    }
-	    return primes;
-	}
+	return primes;
+}
   // Check if number is Even
   public static boolean isEven(int n) {
   	return (n & 1) == 0;
