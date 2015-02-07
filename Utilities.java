@@ -263,7 +263,24 @@ public class Utilities {
   		
   		return count;
   	}
-  
+  	/* Computes and creates new array made up of common strings
+	found in both arrays passed, ignoring letter case */
+	public static String[] computeCommon(String[] first, String[] second) {
+		// With initital capacity to decrease running time
+		List<String> results = new ArrayList<>(
+			first.length > second.length ? first.length : second.length
+		);
+
+		for (String s1 : first) {
+			for (String s2 : second) {
+				if (s1.equalsIgnoreCase(s2)) {
+					results.add(s1);
+				}
+			}
+		}
+
+		return results.toArray(new String[results.size()]);
+	}
 	public static int countOccurences(int[] array, int key) {
 		int count = 0;
 
