@@ -9,11 +9,11 @@ public class Utilities {
 	/* Finds and returns Greatest Common Divisor - 
 	Euclidean algorithm: http://en.wikipedia.org/wiki/Euclidean_algorithm */
   	public int computeGCD(int a, int b) {
-  		return b == 0 ? a : GCD(b, a % b);
+  		return b == 0 ? a : computeGCD(b, a % b);
   	}
   	// Finds and returns Least Common Multiple
   	public int computeLCM(int a, int b) {
-  		return (a * b) / GCD(a, b);
+  		return (a * b) / computeGCD(a, b);
   	}
   	// Reverses a string
   	public static String reverse(String str) {  
@@ -152,6 +152,16 @@ public class Utilities {
 	    }
 
 	    return result;
+	}
+	// Gets array of integers from array of strings
+	public static int[] toIntArray(String[] array) {
+		int[] nums = new int[array.length];
+
+		for (int i = 0; i < array.length; i++) {
+			nums[i] = Integer.parseInt(array[i]);
+		}
+
+		return nums;
 	}
   	// Check if a number is prime
   	public static boolean isPrime(int num) {
