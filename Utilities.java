@@ -142,7 +142,7 @@ public class Utilities {
 	    return count;
 	}
 	// Filters out non-unique members of a list
-	public static <T> List<T> getUniques(List<T> list) {
+	public static <T> List<T> filterUniques(List<T> list) {
 	    List<T> result = new ArrayList<>();
 
 	    for (T t : list) {
@@ -263,24 +263,7 @@ public class Utilities {
   		
   		return count;
   	}
-  	/* Computes and creates new array made up of common strings
-	found in both arrays passed, ignoring letter case */
-	public static String[] computeCommon(String[] first, String[] second) {
-		// With initital capacity to decrease running time
-		List<String> results = new ArrayList<>(
-			first.length > second.length ? first.length : second.length
-		);
-
-		for (String s1 : first) {
-			for (String s2 : second) {
-				if (s1.equalsIgnoreCase(s2)) {
-					results.add(s1);
-				}
-			}
-		}
-
-		return results.toArray(new String[results.size()]);
-	}
+  
 	public static int countOccurences(int[] array, int key) {
 		int count = 0;
 
