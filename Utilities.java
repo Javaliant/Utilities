@@ -15,6 +15,9 @@ public class Utilities {
   	public int computeLCM(int a, int b) {
   		return (a * b) / computeGCD(a, b);
   	}
+  	//Empty lines as delimeters (paragraph processing)
+  	Scanner input = new Scanner(new File(args[0]))
+			.useDelimiter(Pattern.compile("^\\s*$", Pattern.MULTILINE));
   	// Reverses a string
   	public static String reverse(String str) {  
 		return new StringBuilder(str).reverse().toString();
