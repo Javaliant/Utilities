@@ -5,6 +5,8 @@ Simple functions for use, practice, and sharing.
 import java.util.*; 
 import java.io.*;
 
+// TO DO Research Functions
+
 public class Utilities {
 	/* Finds and returns Greatest Common Divisor - 
 	Euclidean algorithm: http://en.wikipedia.org/wiki/Euclidean_algorithm */
