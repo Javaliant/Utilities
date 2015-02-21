@@ -17,9 +17,17 @@ public class Utilities {
   	public int computeLCM(int a, int b) {
   		return (a * b) / computeGCD(a, b);
   	}
-  	//Empty lines as delimeters (paragraph processing)
-  	Scanner input = new Scanner(new File(args[0]))
-			.useDelimiter(Pattern.compile("^\\s*$", Pattern.MULTILINE));
+  	// Sorting a map b values
+  	public static <K, V extends Comparable<? super V>> Map<K, V>  sortByValue( Map<K, V> map ) {
+      		Map<K,V> result = new LinkedHashMap<>();
+     		Stream <Entry<K,V>> st = map.entrySet().stream();
+
+     		st.sorted(Comparator.comparing(e -> e.getValue()))
+        		.forEach(e ->result.put(e.getKey(), e.getValue())
+        	);
+
+     		return result;
+  	}
   	// Reverses a string
   	public static String reverse(String str) {  
 		return new StringBuilder(str).reverse().toString();
