@@ -17,6 +17,19 @@ public class Utilities {
   	public int computeLCM(int a, int b) {
   		return (a * b) / computeGCD(a, b);
   	}
+  	// Permutation calculators
+  	public static int permutate(int p, int r) {
+		int result = 1;
+		for (int i = p; r > 0; r--, p--) {
+			result *= p;
+		}
+
+		return result;
+	}
+
+	public static int permutate(int p) {
+		return permutate(p, p);
+	}
   	// Sorting a map b values
   	public static <K, V extends Comparable<? super V>> Map<K, V>  sortByValue( Map<K, V> map ) {
       		Map<K,V> result = new LinkedHashMap<>();
