@@ -30,6 +30,18 @@ public class Utilities {
 	public static int permutate(int p) {
 		return permutate(p, p);
 	}
+	// Combination
+	public static int combine(int total, int select) {
+		return permutate(total) / (permutate(select) * permutate(total - select));
+	}
+	
+	// Getting the median of 3 values
+	private static <T extends Comparable<? super T>> T median3(T a, T b, T c) {
+    	List<T> medianHelper = Arrays.asList(a, b, c);
+    	Collections.sort(medianHelper);
+
+    	return medianHelper.get(1);
+	}
   	// Sorting a map b values
   	public static <K, V extends Comparable<? super V>> Map<K, V>  sortByValue( Map<K, V> map ) {
       		Map<K,V> result = new LinkedHashMap<>();
