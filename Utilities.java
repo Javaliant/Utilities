@@ -31,10 +31,10 @@ public class Utilities {
 		return permutate(p, p);
 	}
 	// Combination
-	public static int combine(int total, int select) {
-		return permutate(total) / (permutate(select) * permutate(total - select));
+	private static int combine(int total, int select) {
+		select = Math.min(select, total - select);
+    		return permutate(total, select) / permutate(select);
 	}
-	
 	// Getting the median of 3 values
 	private static <T extends Comparable<? super T>> T median3(T a, T b, T c) {
     	List<T> medianHelper = Arrays.asList(a, b, c);
