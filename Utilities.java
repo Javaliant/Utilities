@@ -35,6 +35,26 @@ public class Utilities {
 		select = Math.min(select, total - select);
     		return permutate(total, select) / permutate(select);
 	}
+	// Checking if a tree is balanced.
+	public boolean isBalanced(Node root){
+        	return getHeight(root)!=-1;
+    	}
+	// getting height of nodes
+	private static int getHeight(Node node) {
+		if (node == null) return 0;
+
+		int leftHeight  = getHeight(node.getLeft());
+	        int rightHeight = getHeight(node.getRight());
+	
+		int taller  = Math.max(leftHeight, rightHeight);
+	        int shorter = Math.min(leftHeight, rightHeight);
+	
+	    	if (shorter < 0 || taller - shorter > 1) {
+	        	return -1;           // Unbalanced tree
+	    	} else {
+	        	return taller + 1;
+	    	}
+	}
 	// Getting the median of 3 values
 	private static <T extends Comparable<? super T>> T median3(T a, T b, T c) {
     	List<T> medianHelper = Arrays.asList(a, b, c);
