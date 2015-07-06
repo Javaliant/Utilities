@@ -13,6 +13,11 @@ public class Utilities {
   	public int computeGCD(int a, int b) {
   		return b == 0 ? a : computeGCD(b, a % b);
   	}
+  	
+  	// Check if something is the power of 2
+  	public boolean isPowerOfTwo(int n) {
+	 	return n > 0 && ((n & n - 1) == 0);
+    	}
   	// Finds and returns Least Common Multiple
   	public int computeLCM(int a, int b) {
   		return (a * b) / computeGCD(a, b);
