@@ -44,6 +44,9 @@ public class Utilities {
 	public boolean isBalanced(Node root){
         	return getHeight(root)!=-1;
     	}
+    	// Java 8 combine two arrays
+    	String[] both = Stream.concat(Arrays.stream(a), Arrays.stream(b))
+                      .toArray(String[]::new);
 	// getting height of nodes
 	private static int getHeight(Node node) {
 		if (node == null) return 0;
