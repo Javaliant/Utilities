@@ -14,6 +14,20 @@ public class Utilities {
   		return b == 0 ? a : computeGCD(b, a % b);
   	}
   	
+  	// maximum sum of sub-array, Kadane's algorithm: https://en.wikipedia.org/wiki/Maximum_subarray_problem
+  	private static int findMaxSubSum(int[] array) {
+		int current = array[0];
+		int max = array[0];
+
+		for (int i = 1; i < array.length; i++) {
+			current = Math.max(array[i], current + array[i]);
+			max = Math.max(max, current);
+		}
+
+		return max;
+	}
+
+  	
   	// Check if something is the power of 2
   	public boolean isPowerOfTwo(int n) {
 	 	return n > 0 && ((n & n - 1) == 0);
